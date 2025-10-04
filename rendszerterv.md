@@ -15,12 +15,11 @@ A célkitűzés, hogy egy **reszponzív, bővíthető és felhasználóbarát we
 
 ### 2.1 Megrendelői követelmények
 - A weboldal legyen **reszponzív**.  
-- A rendszer kódja legyen **bővíthető**.  
-- Vendégek számára is elérhető legyen a **TOP 10 lista**.  
+- A rendszer kódja legyen **bővíthető**.    
 - **3 héten belül demó verzió** készüljön el.  
 
 ### 2.2 Fix üzleti igények
-- Szint-rendszer (előnyök feloldása).  
+- Szint-rendszer: Tanár, diák, vendég  
 - Saját profil szerkesztése.  
 - Regisztráció/Bejelentkezés.  
 - Elfelejtett jelszó funkció.  
@@ -42,9 +41,9 @@ A célkitűzés, hogy egy **reszponzív, bővíthető és felhasználóbarát we
 ## 3. Funkcionális terv
 
 ### 3.1 Felhasználói szerepkörök
-- Vendég  
-- Regisztrált felhasználó  
-- Adminisztrátor  
+- Tanár: minden jogosultsággal rendelkezik: külön csoport létrehozása, csoportok közötti lépkedés, ha belép egy csoportba akkor lássa a felhasználókat és az elért eredményeiket
+- Diák: be tud lépni egy csoportba egy adott kóddal, az adott csoportokon belül meg szabadon tudjon kvízezni, ** csak a legújabb és saját eredményét látja **
+- Vendég: nincsen jogsultsága, csak regisztrálni és bejelentkezni tud
 
 ### 3.2 Modulok
 1. **Felhasználókezelés** (regisztráció, belépés, profil szerkesztés)  
