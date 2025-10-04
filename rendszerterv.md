@@ -51,4 +51,17 @@ A célkitűzés, hogy egy **reszponzív, bővíthető és felhasználóbarát we
 2. **Kvíz modul** (témaválasztás, kérdések, pontozás)  
 3. **Eredménykezelés** (toplista, statisztikák)  
 4. **Admin modul** (kérdésbank kezelése – későbbi verzióban)  
----
+
+
+## Követelmények:
+## Követelmény lista:
+| Követelmény | Modul | Név | Leírás |
+| :---:       | ---   | --- | :---   |
+| Követelmény 1 | Felület | Játékosnév megadása | A felhasználó legelőször ezt lássa amikor megérkezik a weboldalra. Miután megadta a játékosnevét kezdőthet a game |
+| Követelmény 2 | Felület | Témakörök | A felhaasználó ebben a modulban már ki tudja választani, hogy milyen téma körben szeretne játszani. Az alábbi téma körökből választhat: Mesterséges intelligencia, informatika, matematika, történelem, irodalom. |
+| Követelmény 3 | Felület | Játék megkezdése | Miután a felhasználó kiválasztotta a témakört következő lépésben egy pulzáló start-gomb jelenik meg neki, alatta a játékmenet leírásával. |
+| Követelmény 3 | Felület | Játék menete | Miután a felhasználó megnyomta a start-gombot és a játék megkezdődött: minden témakörben egy kérdés kiválasztására legyen 7 másodperc.|
+| Követelmény 4| Felület | Játék nyomon követése | A játék menete közben a játékos meg tudja tekinte hogy a 10 kérdésből éppen mennyinél tart, illetve hogy a 7 másodpercből még mennyi van hátra. A két számláló egymás mellett helyezkedjen el. |
+| Követelmény 5 | Felület | Pontszámok | Ha a játékos nem választott akkor az adott körnél az idő elteltével a pontszám nem kerül bele az adott játékba. |
+| Követelmény 6 | Felület | Játék vége | Miután a játék véget ért írja ki a játékos pontszámát és idejét. Majd alá egy gombot amivel el tudja fogadni az elért eredményt. |
+|Követelmény 7 | Felület | Főoldal | A felhasználó itt már több opció közül is tud választani: Eredmények, Játék, Bejelentkezés, Regisztráció.|
