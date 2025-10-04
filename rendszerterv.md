@@ -53,7 +53,6 @@ A célkitűzés, hogy egy **reszponzív, bővíthető és felhasználóbarát we
 4. **Admin modul** (kérdésbank kezelése – későbbi verzióban)  
 
 
-## Követelmények:
 ## Követelmény lista:
 | Követelmény | Modul | Név | Leírás |
 | :---:       | ---   | --- | :---   |
