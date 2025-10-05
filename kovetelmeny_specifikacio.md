@@ -1,42 +1,98 @@
 # Követelmény specifikáció
 
-## Áttekintés:
-A webes alkalmazásunk célja, hogy a felhasználó különböző témakörökben tudjon magának vicceket választani.
-Ezek a témakörök: matematika; történelem; informatika; AI-al kapcsolatos kérdések.
-Az egyes témakörökön belül, a válaszok módja elég eltérő lesz lehet évszám, vagy éppen fogalom akár egy szó kiválasztása.
-Az viszont fontos, hogy a kvíz közben válaszként a program csak kiválasztási lehetőségeket fog elfogadni.
+## 1. Rendszer áttekintése
 
-## A jelenlegi helyzet:
-Valiskó Zsolt mint kiemelt közszereplő és Balla Benedek a Karinthy-gyűrű várományosa kérvényezték egy kvíz-portál már már egy túlfejlesztett
-honfoglaló játék elkészítésést a csizmi-Kft.-nél.
-Az alkalmazás fejlesztése alatt még csak az alap funkciók lesznek elérhetőek, mint például a témakörök kiválasztasása, az éppen aktuális eredmények eltárolása.
+A fejlesztendő rendszer egy **webes alkalmazás**, amely:
+- lehetővé teszi a **felhasználók regisztrációját és bejelentkezését** tanár vagy diák szerepkörben,  
+- támogatja a **kvízek létrehozását és kitöltését**,  
+- biztosítja az **eredmények tárolását és megjelenítését**,  
+- valamint az **adminisztrációs műveleteket** a tanárok számára.  
 
-## Megrendelői követelmények:
-A weboldal legyen teljesen reszponzív. Fontos, hogy a kód felépítése tartalmazzon olyan elemeket,
-amely lehetővé teszi a későbbi fejlesztéseket rajta. Például legyen lehetőség csak meglátogatni a weboldalt
-külső felhasználók számára, számukra pedig legyen látható hogy kik a TOP 10 felhasználó azaz, az elmúllt időszakban
-kik érték el a legmagasabb eredményeket. >> Ezzel is arra buzdítva a látogatót, hogy regisztráljon be majd pedig Ő is 
-legyen aktív felhasználó.
+A rendszer három fő szereplőre épül:
+1. **Tanár** – teljes körű hozzáférés a kurzusokhoz és diákokhoz  
+2. **Diák** – kurzusokhoz csatlakozhat és kvízeket tölthet ki  
+3. **Vendég** – regisztráció és bejelentkezés nélkül korlátozott hozzáféréssel rendelkezik
 
-## Jelenlegi üzleti folyamatok:
-Jelenleg még tárgyalások zajlanak a megrendelőkkel, hogy teljesen tisztázni tudjuk az igényeit, hogy a következő 3 hétre működőképes demo
-verziót tudjunk bemutatni a számukra.
+---
 
-## Fix üzleti igények:
-+ Szint-rendszer: Bizonyos elért eredmények felett, a felhasználónak legyen lehetősége egy kérdést skippelni, vagy idő hosszabbítást kérni.
-+ Saját profil: Legyen lehetőség szerkeszteni a saját profilt: játékosnév beállítása, e-mail cím változtatása, profil törlése
-+ Regisztráció/Bejelentkezés: A teljes verzióban legyen lehetőség arra, hogy be tudjunk jelentkezni e-mail/felhasználó név + jelszóval
-+ Elfelejtett jelszó: A felhasználó elfelejtett jelszó esetén tudjon kérni egy új jelszó igénylést. (Ennek körülményei még nincsenek tisztázva)
+## 2. Követelmények
 
-## Követelmény lista:
-| Követelmény | Modul | Név | Leírás |
-| :---:       | ---   | --- | :---   |
-| Követelmény 1 | Felület | Játékosnév megadása | A felhasználó legelőször ezt lássa amikor megérkezik a weboldalra. Miután megadta a játékosnevét kezdőthet a game |
-| Követelmény 2 | Felület | Témakörök | A felhaasználó ebben a modulban már ki tudja választani, hogy milyen téma körben szeretne játszani. Az alábbi téma körökből választhat: Mesterséges intelligencia, informatika, matematika, történelem, irodalom. |
-| Követelmény 3 | Felület | Játék megkezdése | Miután a felhasználó kiválasztotta a témakört következő lépésben egy pulzáló start-gomb jelenik meg neki, alatta a játékmenet leírásával. |
-| Követelmény 3 | Felület | Játék menete | Miután a felhasználó megnyomta a start-gombot és a játék megkezdődött: minden témakörben egy kérdés kiválasztására legyen 7 másodperc.|
-| Követelmény 4| Felület | Játék nyomon követése | A játék menete közben a játékos meg tudja tekinte hogy a 10 kérdésből éppen mennyinél tart, illetve hogy a 7 másodpercből még mennyi van hátra. A két számláló egymás mellett helyezkedjen el. |
-| Követelmény 5 | Felület | Pontszámok | Ha a játékos nem választott akkor az adott körnél az idő elteltével a pontszám nem kerül bele az adott játékba. |
-| Követelmény 6 | Felület | Játék vége | Miután a játék véget ért írja ki a játékos pontszámát és idejét. Majd alá egy gombot amivel el tudja fogadni az elért eredményt. |
-|Követelmény 7 | Felület | Főoldal | A felhasználó itt már több opció közül is tud választani: Eredmények, Játék, Bejelentkezés, Regisztráció.|
-  
+### 2.1 Megrendelői követelmények
+- A weboldal legyen **reszponzív**, mobilon és asztali gépen is megfelelően jelenjen meg.  
+- A kód legyen **bővíthető és karbantartható**.  
+- **3 héten belül** készüljön el egy **demó verzió**.  
+- Legyenek különböző **jogosultsági szintek** (tanár, diák, vendég).  
+
+### 2.2 Fix üzleti igények
+- Szint-rendszer: Tanár, Diák, Vendég.  
+- Profil szerkesztés: profilkép beállítása, e-mail módosítása.  
+- Regisztráció / Bejelentkezés funkció.  
+- Elfelejtett jelszó helyreállítása.  
+- Osztályzási lehetőségek a tanárok részére.  
+
+### 2.3 Funkcionális követelmények
+- **Kérdésbank kezelése:** Tanárok saját kvízeket hozhatnak létre és adhatnak hozzá a rendszerhez.  
+- **Kvíz indítása:** Időkorlát beállításával.  
+- **Eredmények tárolása:** A rendszer minden diáknál az utolsó eredményt rögzíti.  
+- **Osztályozás:** A tanár az elért pontszám alapján értékelheti a diákokat.  
+- **Reszponzív kezelőfelület:** Modern, letisztult megjelenéssel.  
+
+### 2.4 Nem funkcionális követelmények
+- **Gyors reakcióidő:** Az oldal működése gördülékeny legyen.  
+- **Biztonságos jelszókezelés:** Erős jelszógenerálás és tárolás (pl. hash-elés).  
+- **Skálázhatóság:** Lehetőség a későbbi bővítésre (pl. új tantárgyak, modulok).  
+
+---
+
+## 3 Funkcionális terv
+
+### 3.1 Felhasználói szerepkörök
+| Szerepkör | Leírás |
+|------------|--------|
+| **Tanár** | Teljes jogosultsággal rendelkezik: kurzusok létrehozása, diákok eredményeinek megtekintése, új kvízek létrehozása, kérdésbank kezelése. |
+| **Diák** | Kurzusokhoz kód alapján csatlakozhat, kvízeket tölthet ki, és megtekintheti a saját legutolsó eredményét. |
+| **Vendég** | Csak regisztrációra és bejelentkezésre jogosult, további funkciókat nem ér el. |
+
+---
+
+## 4. Modulok
+
+| Modul neve | Leírás |
+|-------------|--------|
+| **Felhasználókezelés** | Regisztráció, bejelentkezés, profil szerkesztése, jelszó visszaállítása. |
+| **Kvíz modul** | Kvízek kezelése, kitöltése, időkorlátos feladatmegoldás. |
+| **Eredménykezelés** | Diákok legutolsó eredményének tárolása, statisztikák, toplisták megjelenítése. |
+| **Admin modul** | Tanári kérdésbank, új kurzusok és kvízek létrehozása, diákok eredményeinek áttekintése. |
+
+---
+
+## 5. Részletes követelménylista
+
+| Kód | Modul | Név | Leírás |
+|:---:|---|---|---|
+| **K1** | Felület | Kezdőlap | A főoldalon váltakozó GIF-ek jelennek meg, amelyek bemutatják a weboldal funkcióit. |
+| **K2** | Felület | Regisztráció | A főoldalról érhető el. A felhasználó tanárként vagy diákként regisztrálhat. Tanárként meg kell adni a „zöld-erdő” kódot. |
+| **K3** | Felület | Bejelentkezés | A felhasználó kiválaszthatja, hogy tanár vagy diák, majd e-mail és jelszó megadásával beléphet. |
+| **K4** | Tanár | Dashboard | A tanár láthatja az általa létrehozott kurzusokat és a hozzájuk tartozó diákok számát. |
+| **K5** | Tanár | Create Classroom | Új kurzus létrehozása név és belépési jogosultság beállításával. |
+| **K6** | Tanár | Classroom | Egy adott kurzus részletes megtekintése, diákok kezelése, új kvízek hozzáadása. |
+| **K7** | Diák | Dashboard | A diák láthatja, milyen kurzusokhoz csatlakozott, és új kurzusba is beléphet kóddal. |
+| **K8** | Diák | Classroom | A kurzushoz tartozó kvízek listája és a saját legutóbbi pontszámok megjelenítése. |
+| **K9** | Diák | Kvíz | Kérdések és válaszlehetőségek megjelenítése, navigáció a kérdések között. |
+| **K10** | Tanár | Create Kvíz | A tanár kvízeket hozhat létre, kérdéseket adhat hozzá, és meghatározhatja a helyes válaszokat, pontszámokat. |
+
+---
+
+## 6. Tesztelési követelmények
+
+- Regisztráció és bejelentkezés validálása.  
+- Kvízek működésének és eredménymentésének ellenőrzése.  
+- Jogosultsági szintek helyes működése.  
+- Felhasználói felület reszponzivitásának ellenőrzése.  
+
+---
+
+## 7. Összefoglalás
+
+A dokumentumban meghatározott követelmények alapján egy **tanár–diák interakcióra és kvíz alapú tudásmérésre épülő webes rendszer** kerül fejlesztésre.  
+A rendszer célja az oktatási folyamat támogatása, a diákok fejlődésének mérése, valamint a tanárok adminisztrációs munkájának egyszerűsítése.  
