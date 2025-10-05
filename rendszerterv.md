@@ -1,13 +1,11 @@
 # Rendszerterv
 
 ## 1. Bevezetés, célkitűzés
-A rendszer célja egy olyan webes kvíz alkalmazás megvalósítása, amely szórakoztató formában biztosít lehetőséget a felhasználóknak különböző témakörökben való játékra.  
-A fő témakörök: **matematika, történelem, informatika, mesterséges intelligencia**.  
-
-A rendszer elsődleges feladata, hogy a felhasználók egyszerűen tudjanak regisztrálni, bejelentkezni és kvízeket kitölteni.  
-A játék során a kérdések csak előre meghatározott válaszlehetőségekkel válaszolhatók meg, ezzel csökkentve a hibás bevitel lehetőségét.  
-
-A célkitűzés, hogy egy **reszponzív, bővíthető és felhasználóbarát webes kvíz-portál** jöjjön létre.
+A rendszer célja, hogy egy olyan weboldal jöjjön létre melyben a tanárok nyomon tudják követni diákjaik aktivitását és fejlődését
+az alábbi téma körökben: Mesterséges intelligencia, informatika, matematika, történelem, irodalom. 
+A végleges verzióban az a cél, hogy a diákok tudjanak csatlakozni a különböző szobákhoz. A diákok a különböző szobákban korlátlanul hozzáférhetnek a 
+kvízekhez ahol a legutolsó eredményüket tárolja el. A tanárok admin jogosultsággal rendelkeznek, hozzáférnek az összes szobához, ahol fix-kódokkal tudják 
+segíteni a diákok csatlakozását a szobákhoz.
 
 ---
 
@@ -16,26 +14,26 @@ A célkitűzés, hogy egy **reszponzív, bővíthető és felhasználóbarát we
 ### 2.1 Megrendelői követelmények
 - A weboldal legyen **reszponzív**.  
 - A rendszer kódja legyen **bővíthető**.    
-- **3 héten belül demó verzió** készüljön el.  
+- **3 héten belül demó verzió** készüljön el.
+- Legyenek különböző jogosultsági szintek: tanár, diák, még nem bejelentkezett felhasználók.  
 
 ### 2.2 Fix üzleti igények
-- Szint-rendszer: Tanár, diák, vendég  
-- Saját profil szerkesztése.  
+- Szint-rendszer: Tanár, diák, még nem belentkezett felhasználó 
+- Saját profil szerkesztése: profilkép beállítása, e-mail cím módosítása
 - Regisztráció/Bejelentkezés.  
-- Elfelejtett jelszó funkció.  
+- Elfelejtett jelszó funkció.
+- Osztályzási lehetőségek
 
 ### 2.3 Funkcionális követelmények
-- Kérdésbank kezelése.  
-- Kvíz indítása.  
-- Eredmények eltárolása.  
-- Pontszámítás és toplista.  
-- Reszponzív UI.  
+- Kérdésbank kezelése. A tanár is tudjon hozzáadni az adott témakörhöz saját kezűleg kéeszített kvízeket.  
+- Kvíz indítása, idő korlát beállítása
+- Legutolsó eredmények eltárolása.  
+- Lehetőség az elért eredmények alapján osztályozni a diákokat
+- Reszponzív UI.
 
 ### 2.4 Nem funkcionális követelmények
-- Gyors reakcióidő.  
-- Biztonságos jelszókezelés.  
-- Bővíthetőség új témakörökkel.  
-
+- Gyors reakcióidő, de a beállítások között lehessen módosítani 
+- Biztonságos jelszókezelés: erős rendszer által generált jelszavak használata
 ---
 
 ## 3. Funkcionális terv
@@ -55,11 +53,6 @@ A célkitűzés, hogy egy **reszponzív, bővíthető és felhasználóbarát we
 ## Követelmény lista:
 | Követelmény | Modul | Név | Leírás |
 | :---:       | ---   | --- | :---   |
-| Követelmény 1 | Felület | Játékosnév megadása | A felhasználó legelőször ezt lássa amikor megérkezik a weboldalra. Miután megadta a játékosnevét kezdőthet a game |
-| Követelmény 2 | Felület | Témakörök | A felhaasználó ebben a modulban már ki tudja választani, hogy milyen téma körben szeretne játszani. Az alábbi téma körökből választhat: Mesterséges intelligencia, informatika, matematika, történelem, irodalom. |
-| Követelmény 3 | Felület | Játék megkezdése | Miután a felhasználó kiválasztotta a témakört következő lépésben egy pulzáló start-gomb jelenik meg neki, alatta a játékmenet leírásával. |
-| Követelmény 3 | Felület | Játék menete | Miután a felhasználó megnyomta a start-gombot és a játék megkezdődött: minden témakörben egy kérdés kiválasztására legyen 7 másodperc.|
-| Követelmény 4| Felület | Játék nyomon követése | A játék menete közben a játékos meg tudja tekinte hogy a 10 kérdésből éppen mennyinél tart, illetve hogy a 7 másodpercből még mennyi van hátra. A két számláló egymás mellett helyezkedjen el. |
-| Követelmény 5 | Felület | Pontszámok | Ha a játékos nem választott akkor az adott körnél az idő elteltével a pontszám nem kerül bele az adott játékba. |
-| Követelmény 6 | Felület | Játék vége | Miután a játék véget ért írja ki a játékos pontszámát és idejét. Majd alá egy gombot amivel el tudja fogadni az elért eredményt. |
-|Követelmény 7 | Felület | Főoldal | A felhasználó itt már több opció közül is tud választani: Eredmények, Játék, Bejelentkezés, Regisztráció.|
+| K1 | Felület | Főoldal | A főoldalon GIF-ek váltakozzanak, amik mutatják, hogy hogy néz ki valójában a weboldal egy-egy funkciója. |
+| K2 | Felület | Regisztráció | A főoldalról ide navigálva tudnak regisztrálni a felhasználók. Itt ki lehet választani, hogy Tanár vagy diákként szeretnénk regisztrálni. Ha tanárként, akkor tudnunk kell a tanári kódot (zöld-erdő), amit a regisztrációkor meg kell adniuk, különben a regisztráció sikertelennek minősül. |
+| K3 | Felület | Bejelentkezés | A főoldalről át tudjunk lépni a bejelentkezés oldalra, ahol kiválasztjuk azt az opciót egy kapcsolóval, hogy tanárok, vagy diákok vagyunk-e. A funkció kiválasztása után a felhasználók egy e-mail cím/egyedi felhasználó név és egy jelszó megadásával tudnak belépni az oldalra. |
