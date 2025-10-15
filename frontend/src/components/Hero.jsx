@@ -39,3 +39,4 @@ export default function Hero() {
     window.location.href = '/register';
   }
 
+  
