@@ -8,6 +8,7 @@ function App() {
   return (
     <>
       <div>
+        <h1>LOL</h1>
          <Quiz />  
       </div>
     </>
